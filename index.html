@@ -100,7 +100,7 @@
     <thead>
       <tr>
         <th>コマンド</th>
-        <th>引数・セレクタ</th>
+        <th>引数・セレクタ (統合版の場合、minecraft:が付いている場合も必要ありません)</th>
         <th>説明</th>
         <th>エディション</th>
         <th>コピー</th>
@@ -108,17 +108,157 @@
     </thead>
     <tbody>
       <tr>
-        <td>/give</td>
-        <td>@p minecraft:diamond 1</td>
-        <td>ダイヤモンドを1個付与</td>
-        <td>統合版, Java版</td>
-        <td><button class="copy-btn" data-cmd="/give @p minecraft:diamond 1">コピー</button></td>
-      </tr>
+  <td>/give</td>
+  <td>@p minecraft:diamond 1</td>
+  <td>ダイヤモンドを1個付与</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/give @p minecraft:diamond 1">コピー</button></td>
+</tr>
+<tr>
+  <td>/tp</td>
+  <td>@a 100 64 200</td>
+  <td>全員を指定座標にテレポート</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/tp @a 100 64 200">コピー</button></td>
+</tr>
+<tr>
+  <td>/effect</td>
+  <td>@a speed 60 1</td>
+  <td>全員にスピード効果（60秒間、レベル1）</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/effect @a speed 60 1">コピー</button></td>
+</tr>
+<tr>
+  <td>/summon</td>
+  <td>minecraft:zombie</td>
+  <td>ゾンビを召喚</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/summon minecraft:zombie">コピー</button></td>
+</tr>
+<tr>
+  <td>/weather</td>
+  <td>clear</td>
+  <td>天気を晴れに設定</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/weather clear">コピー</button></td>
+</tr>
+<tr>
+  <td>/kill</td>
+  <td>@e[type=creeper]</td>
+  <td>すべてのクリーパーを倒す</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/kill @e[type=creeper]">コピー</button></td>
+</tr>
+<tr>
+  <td>/list</td>
+  <td></td>
+  <td>サーバー上のプレイヤーを一覧表示</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/list">コピー</button></td>
+</tr>
+<tr>
+  <td>/locate</td>
+  <td>village</td>
+  <td>最寄りの村の座標を表示</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/locate village">コピー</button></td>
+</tr>
+<tr>
+  <td>/fill</td>
+  <td>0 64 0 10 64 10 minecraft:stone</td>
+  <td>指定範囲を石で埋める</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/fill 0 64 0 10 64 10 minecraft:stone">コピー</button></td>
+</tr>
+<tr>
+  <td>/setblock</td>
+  <td>100 64 100 minecraft:gold_block</td>
+  <td>指定座標に金ブロックを設置</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/setblock 100 64 100 minecraft:gold_block">コピー</button></td>
+</tr>
+<tr>
+  <td>/time set</td>
+  <td>day</td>
+  <td>時間を昼に設定</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/time set day">コピー</button></td>
+</tr>
+<tr>
+  <td>/gamemode</td>
+  <td>creative @p</td>
+  <td>プレイヤーのゲームモードをクリエイティブに変更</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/gamemode creative @p">コピー</button></td>
+</tr>
+<tr>
+  <td>/difficulty</td>
+  <td>peaceful</td>
+  <td>難易度をピースフルに設定</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/difficulty peaceful">コピー</button></td>
+</tr>
+<tr>
+  <td>/spawnpoint</td>
+  <td>@p 100 64 100</td>
+  <td>プレイヤーのリスポーン地点を設定</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/spawnpoint @p 100 64 100">コピー</button></td>
+</tr>
+<tr>
+  <td>/setworldspawn</td>
+  <td>0 64 0</td>
+  <td>ワールドのスポーン地点を設定</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/setworldspawn 0 64 0">コピー</button></td>
+</tr>
+<tr>
+  <td>/clear</td>
+  <td>@p</td>
+  <td>プレイヤーのインベントリを空にする</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/clear @p">コピー</button></td>
+</tr>
+<tr>
+  <td>/enchant</td>
+  <td>@p minecraft:sharpness 5</td>
+  <td>プレイヤーの持ち物に鋭さVを付与</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/enchant @p minecraft:sharpness 5">コピー</button></td>
+</tr>
+<tr>
+  <td>/xp</td>
+  <td>100L @p</td>
+  <td>プレイヤーに100レベルの経験値を付与</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/xp 100L @p">コピー</button></td>
+</tr>
+<tr>
+  <td>/title</td>
+  <td>@a title {"text":"ようこそ！","color":"gold"}</td>
+  <td>全員にタイトルメッセージを表示</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd='/title @a title {"text":"ようこそ！","color":"gold"}'>コピー</button></td>
+</tr>
+<tr>
+  <td>/playsound</td>
+  <td>minecraft:entity.experience_orb.pickup master @a</td>
+  <td>全員に経験値取得音を再生</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/playsound minecraft:entity.experience_orb.pickup master @a">コピー</button></td>
+</tr>
+<tr>
+  <td>/say</td>
+  <td>こんにちは、世界！</td>
+  <td>チャットにメッセージを表示</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/say こんにちは、世界！">コピー</button></td>
+</tr>
     </tbody>
   </table>
 
   <footer>
-    <p>コマンドの提案はこちら：</p>
+    <p>コマンドの新規提案はこちら：</p>
     <a href="https://docs.google.com/forms/d/e/あなたのフォームID/viewform" target="_blank">
       <button class="copy-btn">提案フォームへ</button>
     </a>
