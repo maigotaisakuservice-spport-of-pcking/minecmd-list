@@ -110,7 +110,7 @@
       <tr>
   <td>/give</td>
   <td>@p minecraft:diamond 1</td>
-  <td>ダイヤモンドを1個付与</td>
+  <td>ダイヤモンドを1個付与<br>「1」の部分を変えればその個数<br>「diamond」の部分を変えれば、別のアイテムが指定した個数分もらえる</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/give @p minecraft:diamond 1">コピー</button></td>
 </tr>
@@ -124,7 +124,7 @@
 <tr>
   <td>/effect</td>
   <td>@a speed 60 1</td>
-  <td>全員にスピード効果（60秒間、レベル1）</td>
+  <td>全員にスピード効果（60秒間、レベル1）<br>レベルを高くすると、とんでもない事になるので注意</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/effect @a speed 60 1">コピー</button></td>
 </tr>
@@ -145,7 +145,7 @@
 <tr>
   <td>/kill</td>
   <td>@e[type=creeper]</td>
-  <td>すべてのクリーパーを倒す</td>
+  <td>すべてのクリーパーを倒す<br>type=の後を変えれば他のモブにも出来る</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/kill @e[type=creeper]">コピー</button></td>
 </tr>
@@ -159,13 +159,13 @@
 <tr>
   <td>/locate</td>
   <td>village</td>
-  <td>最寄りの村の座標を表示</td>
+  <td>最寄りの村の座標を表示<br>villageの場所を他の場所の名前に変更すると<br>他の場所の最寄りの座標が表示される。<br>ネザー要塞やエンドシティなどは、その世界(ディメンション)に居なければ実行不可</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/locate village">コピー</button></td>
 </tr>
 <tr>
   <td>/fill</td>
-  <td>0 64 0 10 64 10 minecraft:stone</td>
+  <td>0 64 0   10 64 10    minecraft:stone</td>
   <td>指定範囲を石で埋める</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/fill 0 64 0 10 64 10 minecraft:stone">コピー</button></td>
@@ -186,10 +186,10 @@
 </tr>
 <tr>
   <td>/gamemode</td>
-  <td>creative @p</td>
+  <td>@p creative</td>
   <td>プレイヤーのゲームモードをクリエイティブに変更</td>
   <td>統合版, Java版</td>
-  <td><button class="copy-btn" data-cmd="/gamemode creative @p">コピー</button></td>
+  <td><button class="copy-btn" data-cmd="/gamemode @p creative">コピー</button></td>
 </tr>
 <tr>
   <td>/difficulty</td>
@@ -215,7 +215,7 @@
 <tr>
   <td>/clear</td>
   <td>@p</td>
-  <td>プレイヤーのインベントリを空にする</td>
+  <td>近くのプレイヤーのインベントリを空にする<br>全てのユーザーの場合は@a<br>自分のみの場合は@s</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/clear @p">コピー</button></td>
 </tr>
@@ -228,17 +228,17 @@
 </tr>
 <tr>
   <td>/xp</td>
-  <td>100L @p</td>
+  <td>@p 100</td>
   <td>プレイヤーに100レベルの経験値を付与</td>
   <td>統合版, Java版</td>
-  <td><button class="copy-btn" data-cmd="/xp 100L @p">コピー</button></td>
+  <td><button class="copy-btn" data-cmd="/xp @p 100">コピー</button></td>
 </tr>
 <tr>
   <td>/title</td>
-  <td>@a title {"text":"ようこそ！","color":"gold"}</td>
+  <td>@a title ようこそ！</td>
   <td>全員にタイトルメッセージを表示</td>
   <td>統合版, Java版</td>
-  <td><button class="copy-btn" data-cmd='/title @a title {"text":"ようこそ！","color":"gold"}'>コピー</button></td>
+  <td><button class="copy-btn" data-cmd='/title @a title ようこそ！'>コピー</button></td>
 </tr>
 <tr>
   <td>/playsound</td>
