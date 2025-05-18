@@ -1,0 +1,141 @@
+<!DOCTYPE html><html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>マイクラコマンド表</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 1em;
+      background: #f4f4f4;
+    }
+    h1 {
+      text-align: center;
+    }
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1em;
+      justify-content: center;
+    }
+    .filters input, .filters select {
+      padding: 0.5em;
+      font-size: 1em;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+    th, td {
+      padding: 0.5em;
+      border: 1px solid #ccc;
+      text-align: left;
+    }
+    .copy-btn {
+      padding: 0.3em 0.5em;
+      background: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: #45a049;
+    }
+    footer {
+      margin-top: 2em;
+      padding: 1em;
+      background: #eee;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <h1>マイクラコマンド表</h1>
+  <div class="filters">
+    <input type="text" id="search" placeholder="キーワード検索...">
+    <select id="commandFilter">
+      <option value="">すべてのコマンド</option>
+      <option value="give">/give</option>
+      <option value="execute">/execute</option>
+      <option value="tp">/tp</option>
+      <option value="effect">/effect</option>
+    </select>
+    <select id="editionFilter">
+      <option value="">全エディション</option>
+      <option value="bedrock">統合版</option>
+      <option value="java">Java版</option>
+    </select>
+  </div>  <table id="commandTable">
+    <thead>
+      <tr>
+        <th>コマンド</th>
+        <th>引数・セレクタ</th>
+        <th>説明</th>
+        <th>コピー</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- データはJSで挿入 -->
+    </tbody>
+  </table>  <footer>
+    <p>コマンド提案フォームはこちら：</p>
+    <iframe src="https://docs.google.com/forms/d/e/あなたのフォームID/viewform?embedded=true" width="100%" height="400" frameborder="0" marginheight="0" marginwidth="0">読み込んでいます…</iframe>
+  </footer>  <script>
+    let data = [];
+    fetch('commands.json')
+      .then(res => res.json())
+      .then(json => {
+        data = json;
+        renderTable();
+      });
+
+    const search = document.getElementById('search');
+    const commandFilter = document.getElementById('commandFilter');
+    const editionFilter = document.getElementById('editionFilter');
+
+    [search, commandFilter, editionFilter].forEach(el => el.addEventListener('input', renderTable));
+
+    function renderTable() {
+      const tbody = document.querySelector('#commandTable tbody');
+      tbody.innerHTML = '';
+
+      const keyword = search.value.toLowerCase();
+      const cmdFilter = commandFilter.value;
+      const edition = editionFilter.value;
+
+      data.filter(entry => {
+        return (
+          (!cmdFilter || entry.command.startsWith('/' + cmdFilter)) &&
+          (!edition || entry.edition === edition) &&
+          (entry.command.toLowerCase().includes(keyword) ||
+           entry.arguments.toLowerCase().includes(keyword) ||
+           entry.description.toLowerCase().includes(keyword))
+        );
+      }).forEach(entry => {
+        const tr = document.createElement('tr');
+
+        const fullCmd = `${entry.command} ${entry.arguments}`.trim();
+
+        tr.innerHTML = `
+          <td>${entry.command}</td>
+          <td>${entry.arguments}</td>
+          <td>${entry.description}</td>
+          <td><button class="copy-btn" data-cmd="${fullCmd}">コピー</button></td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('copy-btn')) {
+        const cmd = e.target.getAttribute('data-cmd');
+        navigator.clipboard.writeText(cmd).then(() => {
+          alert('コピーしました: ' + cmd);
+        });
+      }
+    });
+  </script></body>
+</html>
