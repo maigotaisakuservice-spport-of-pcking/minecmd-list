@@ -73,6 +73,9 @@
     .hidden {
       display: none;
     }
+    span {
+      color: red;
+    }
   </style>
 </head>
 <body>
@@ -86,6 +89,7 @@
       <option value="/effect">/effect</option>
       <option value="/summon">/summon</option>
       <option value="/weather">/weather</option>
+      <option value="/gamerule">/gamerule</option>
       <!-- 他のコマンドを追加 -->
     </select>
     <select id="editionFilter">
@@ -243,8 +247,8 @@
 </tr>
 <tr>
   <td>/playsound</td>
-  <td>minecraft:entity.experience_orb.pickup master @a</td>
-  <td>全員に経験値取得音を再生</td>
+  <td>@a minecraft:entity.experience_orb.pickup master</td>
+  <td>全員に経験値取得音を再生<br>「minecraft:entity.experience_orb.pickup master」を変えれば他の音も出せる</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/playsound minecraft:entity.experience_orb.pickup master @a">コピー</button></td>
 </tr>
@@ -268,6 +272,20 @@
   <td>[アイテムID]のところには、耐久力を無限にしたい道具・武器のIDを入力</td>
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/give @s [アイテムID] [minecraft:unbreakable={show_in_tooltip:true}] [個数]">コピー</button></td>
+  </tr>
+  <tr>
+  <td>/gamerule</td>
+  <td>commandBlockOutput false</td>
+  <td>コマンドブロックのコマンド実行ログを非表示にする<br>「false」の部分を「true」に変えることで、再度表示されるようになる</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/gamerule commandBlockOutput false">コピー</button></td>
+  </tr>
+  <tr>
+  <td>/gamerule</td>
+  <td>sendCommandFeedback false</td>
+  <td><span>プレイヤー</span>が実行したコマンドのログを非表示になる<br>「false」の部分を「true」に変えることで、再度表示されるようになる<br>このコマンドを実行した直後から表示されなくなるため「ゲームルールが更新されました」などのメッセージは表示されない</td>
+  <td>統合版, Java版</td>
+  <td><button class="copy-btn" data-cmd="/gamerule sendCommandFeedback false">コピー</button></td>
   </tr>
     </tbody>
   </table>
