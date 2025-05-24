@@ -93,5 +93,15 @@
   <td>統合版, Java版</td>
   <td><button class="copy-btn" data-cmd="/give @p minecraft:diamond 1">コピー</button></td>
 </tr>
+<script>
+  document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('copy-btn')) {
+        const cmd = e.target.getAttribute('data-cmd');
+        navigator.clipboard.writeText(cmd).then(() => {
+          alert('コピーしました: ' + cmd);
+        });
+      }
+    });
+</script>
 </body>
 </html>
