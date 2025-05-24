@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>マイクラコマンド表</title>
+  <title>マイクラアイテムID表</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -75,6 +75,21 @@
     }
   </style>
 </head>
+   <div class="filters">
+    <input type="text" id="search" placeholder="キーワードを入力...">
+    <select id="commandFilter">
+      <option value="">すべてのアイテム</option>
+      <option value="防具">防具</option>
+      <option value="ツール">ツール</option>
+      <option value="その他">その他</option>
+    </select>
+    <select id="editionFilter">
+      <option value="">すべてのエディション</option>
+      <option value="統合版">統合版</option>
+      <option value="Java版">Java版</option>
+    </select>
+    <button onclick="applyFilters()">検索</button>
+   </div>
 <table id="commandTable">
     <thead>
       <tr>
