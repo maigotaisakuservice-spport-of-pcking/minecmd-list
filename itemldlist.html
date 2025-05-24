@@ -558,6 +558,31 @@
 </tr>
 <footer><p>©2025 パソコン大魔王<br>All rights reserved.</p></footer>
 <script>
+  function applyFilters() {
+      const keyword = document.getElementById('search').value.toLowerCase();
+      const commandFilter = document.getElementById('commandFilter').value.toLowerCase();
+      const editionFilter = document.getElementById('editionFilter').value.toLowerCase();
+      const rows = document.querySelectorAll('#commandTable tbody tr');
+
+      rows.forEach(row => {
+        const cells = row.getElementsByTagName('td');
+        const command = cells[0].textContent.toLowerCase();
+        const args = cells[1].textContent.toLowerCase();
+        const description = cells[2].textContent.toLowerCase();
+        const edition = cells[3].textContent.toLowerCase();
+
+        const matchesKeyword = keyword === '' || command.includes(keyword) || args.includes(keyword) || description.includes(keyword);
+        const matchesCommand = commandFilter === '' || command === commandFilter;
+        const matchesEdition = editionFilter === '' || edition.includes(editionFilter);
+
+        if (matchesKeyword && matchesCommand && matchesEdition) {
+          row.classList.remove('hidden');
+        } else {
+          row.classList.add('hidden');
+        }
+      });
+  }
+  
   document.addEventListener('click', function(e) {
       if (e.target.classList.contains('copy-btn')) {
         const cmd = e.target.getAttribute('data-cmd');
