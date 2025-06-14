@@ -78,19 +78,9 @@
     }
   </style>
 
-  
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-3ZXPME022J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-3ZXPME022J');
-</script>
-
-  //Cookieバナー
   <script>
+    //Cookie同意システム(Cookieバナー)
+    
   // Define dataLayer and the gtag function.
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -118,6 +108,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   function consentGrantedAdStorage() {
     gtag('consent', 'update', {
       'ad_storage': 'granted'
+      'ad_user_data': 'granted',
+    'ad_personalization': 'granted',
+    'analytics_storage': 'granted'
     });
   }
 </script>
